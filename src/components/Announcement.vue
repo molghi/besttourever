@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <div class="bg-[#f5fafe] py-[23px] pb-[24px] font-mulish">
+    <div class="bg-[#e1f2ff] py-[23px] pb-[24px] font-mulish">
         <div class="container mx-auto">
             <div class="flex justify-between items-center text-[12px]">
                 <div class="flex justify-between items-center">
