@@ -48,7 +48,7 @@ const content = {
 </script>
 
 <template>
-    <div class="flex justify-between mb-[100px]">
+    <div class="flex justify-center lg:justify-between mb-[50px] md:mb-[100px] gap-[30px] lg:gap-[50px] flex-wrap lg:flex-nowrap">
         <a
             href="/"
             class="max-w-[166px] transition-all duration-300 hover:opacity-50 font-extrabold footer-logo leading-[1.2]"
@@ -57,7 +57,9 @@ const content = {
 
         <!-- columns -->
         <div v-for="(item, index) in content.columns" :key="index">
-            <div class="font-bold text-[21px] leading-[23px] uppercase mb-[20px] font-extrabold">{{ item.title }}</div>
+            <div class="font-bold text-[21px] leading-[23px] uppercase mb-[20px] font-extrabold w-[280px] sm:w-auto">
+                {{ item.title }}
+            </div>
             <ul>
                 <li v-for="(listItem, listIndex) in item.list" :key="listIndex" class="mb-[10px]">
                     <a :href="listItem.link" class="text-[#cecece] hover:underline">{{ listItem.title }}</a>
@@ -89,6 +91,13 @@ const content = {
     font-size: 60px;
 }
 .footer-logo span {
+    display: block;
     color: #ec1f46;
+}
+
+@media (max-width: 1024px) {
+    .footer-logo {
+        font-size: 40px;
+    }
 }
 </style>

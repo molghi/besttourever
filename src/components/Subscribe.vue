@@ -9,8 +9,10 @@ const content = {
 
 <template>
     <section class="subscribe h-[260px] text-white flex justify-center items-center font-mulish">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center p-[170px] pt-[0] pb-[0]">
+        <div class="container mx-auto pl-[10px] pr-[10px]">
+            <div
+                class="flex justify-between items-center flex-col gap-[20px] md:gap-[0] md:flex-row md:px-[50px] lg:px-[170px] text-center md:text-left"
+            >
                 <div>
                     <div class="font-light text-[24px] leading-[30px]">{{ content.smallTitle }}</div>
                     <div class="font-semibold text-[36px] leading-[45px] uppercase">{{ content.title }}</div>
@@ -19,7 +21,7 @@ const content = {
                     <div class="relative">
                         <input
                             type="text"
-                            class="w-[350px] h-[50px] rounded-[4px] text-black pr-[80px] pl-[30px]"
+                            class="sm:w-[350px] h-[50px] rounded-[4px] text-black pr-[80px] pl-[30px]"
                             :placeholder="content.inputPlaceholder"
                         />
                         <button

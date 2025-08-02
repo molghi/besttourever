@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-    <div class="bg-[#e1f2ff] py-[23px] pb-[24px] font-mulish">
-        <div class="container mx-auto">
+    <div class="bg-[#e1f2ff] py-[23px] pb-[24px] font-mulish hidden md:block">
+        <div class="container mx-auto pl-[10px] pr-[10px]">
             <div class="flex justify-between items-center text-[12px]">
                 <div class="flex justify-between items-center">
                     <div class="header__call">
@@ -10,7 +10,7 @@
                         Call us: <a href="tel:+123" class="underline hover:no-underline">(+123) 456 1500</a>
                     </div>
                 </div>
-                <div class="flex justify-between items-center gap-[100px]">
+                <div class="flex justify-between items-center gap-[40px] md:gap-[100px]">
                     <a href="#" class="hover:underline inline-block pl-[37px] my-link">Get BTE Gift Card</a>
                     <a href="#" class="hover:underline inline-block pl-[37px] my-link">Loyalty Program</a>
                 </div>

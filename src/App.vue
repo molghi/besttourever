@@ -11,6 +11,16 @@ import Activities from "@/components/Activities.vue";
 import Testimonials from "@/components/Testimonials.vue";
 import Footer from "@/components/Footer.vue";
 
+import { ref } from "vue";
+
+const hamburgerToggled = ref(false);
+
+const toggleHamburger = () => {
+    hamburgerToggled.value = !hamburgerToggled.value;
+    if (hamburgerToggled.value) document.body.classList.add("lock");
+    else document.body.classList.remove("lock");
+};
+
 const breadcrumbs = [
     { link: "/", title: "Home" },
     { link: "/", title: "Flash Offers" },
@@ -20,8 +30,8 @@ const breadcrumbs = [
 
 <template>
     <Announcement />
-    <Header />
-    <NavMenu />
+    <Header :toggleHamburger="toggleHamburger" :hamburgerToggled="hamburgerToggled" />
+    <NavMenu :hamburgerToggled="hamburgerToggled" />
     <Breadcrumbs :location="breadcrumbs" />
     <Hotel />
     <HotelAbout />

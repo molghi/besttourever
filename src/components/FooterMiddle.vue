@@ -23,7 +23,7 @@ const content = {
 </script>
 
 <template>
-    <div class="flex justify-between mb-[100px] flex gap-[50px]">
+    <div class="flex justify-center md:justify-between mb-[50px] md:mb-[100px] flex gap-[50px] flex-col md:flex-row">
         <!-- contact -->
         <div class="flex-1">
             <div class="font-bold text-[21px] leading-[23px] uppercase mb-[20px]">{{ content.infoCol.title }}</div>
@@ -47,8 +47,8 @@ const content = {
         <div class="flex-1">
             <div class="font-bold text-[21px] leading-[23px] uppercase mb-[20px]">{{ content.formCol.title }}</div>
             <form class="w-full">
-                <div class="flex justify-between items-center gap-[30px]">
-                    <div class="flex-1 mb-[30px]">
+                <div class="flex justify-between items-center gap-[30px] flex-col lg:flex-row">
+                    <div class="flex-1 lg:mb-[30px] w-full">
                         <input
                             required=""
                             type="text"
@@ -57,7 +57,7 @@ const content = {
                             :placeholder="content.formCol.placeholderName"
                         />
                     </div>
-                    <div class="flex-1 mb-[30px]">
+                    <div class="flex-1 mb-[30px] w-full">
                         <input
                             required=""
                             type="text"

@@ -80,12 +80,12 @@ const content = {
                 },
             ],
         },
-        { id: "tab2", title: "Hotel Information", blocks: [] },
-        { id: "tab3", title: "Rooms", blocks: [] },
-        { id: "tab4", title: "Facilities & Activities", blocks: [] },
-        { id: "tab5", title: "Dining & Entertainment", blocks: [] },
-        { id: "tab6", title: "Reviews", blocks: [] },
-        { id: "tab7", title: "Questions & Answers", blocks: [] },
+        { id: "tab2", title: "Hotel Information", blocks: [], content: "Add your information here..." },
+        { id: "tab3", title: "Rooms", blocks: [], content: "Add your information here..." },
+        { id: "tab4", title: "Facilities & Activities", blocks: [], content: "Add your information here..." },
+        { id: "tab5", title: "Dining & Entertainment", blocks: [], content: "Add your information here..." },
+        { id: "tab6", title: "Reviews", blocks: [], content: "Add your information here..." },
+        { id: "tab7", title: "Questions & Answers", blocks: [], content: "Add your information here..." },
     ],
 };
 
@@ -98,10 +98,12 @@ const switchTabs = (index) => {
 
 <template>
     <div class="bg-[#e1f2ff] pb-[100px]">
-        <div class="container mx-auto">
+        <div class="container mx-auto pl-[10px] pr-[10px]">
             <div class="font-mulish">
-                <!-- tabs titles :href="item.link"-->
-                <div class="flex justify-between items-center mb-[60px]">
+                <!-- tabs titles -->
+                <div
+                    class="flex justify-center lg:justify-between items-center mb-[60px] flex-wrap lg:flex-nowrap gap-[30px] lg:gap-[0]"
+                >
                     <button
                         v-for="(item, index) in content.tabsTitles"
                         :key="index"
@@ -126,12 +128,13 @@ const switchTabs = (index) => {
                     >
                         <div class="font-bold text-[24px] leading-[30px] mb-[30px] uppercase">{{ item.title }}</div>
 
+                        <div v-if="item.content">{{ item.content }}</div>
+
                         <div class="flex justify-between gap-[30px] flex-wrap">
                             <div
                                 v-for="(block, blockIndex) in item.blocks"
                                 :key="blockIndex"
-                                :class="block.isBig ? 'h-auto flex-1 flex-grow basis-full' : ''"
-                                :style="!block.isBig ? 'flex: 1 0 calc((100% - 80px) / 2)' : ''"
+                                :class="block.isBig ? 'h-auto flex-1 flex-grow basis-full large-flexbox' : 'small-flexbox'"
                             >
                                 <div class="bg-[#0a223d] text-white w-full rounded-t-[4px] px-6 py-4 font-bold text-[14px]">
                                     {{ block.blockTitle }}
@@ -139,8 +142,8 @@ const switchTabs = (index) => {
                                 <div
                                     :class="
                                         !block.isBig
-                                            ? `bg-white p-[30px] flex flex-wrap`
-                                            : 'bg-white p-[30px] flex flex-wrap gap-[80px]'
+                                            ? `bg-white p-[30px] flex flex-wrap gap-[20px]`
+                                            : 'bg-white p-[30px] flex flex-wrap gap-[20px] sm:gap-[80px]'
                                     "
                                 >
                                     <!-- conditional -->
@@ -148,14 +151,14 @@ const switchTabs = (index) => {
                                         v-if="!block.isBig"
                                         v-for="(listItem, listItemIndex) in block.list"
                                         :key="listItemIndex"
-                                        class="font-normal text-[13px] leading-[15px] pl-[40px] mb-[23px] relative w-1/2 checkmarked"
+                                        class="font-normal text-[13px] leading-[15px] pl-[40px] relative checkmarked flex-1 basis-full"
                                     >
                                         {{ listItem }}
                                     </div>
 
                                     <template v-else v-for="(el, elIndex) in block.columns" :key="elIndex">
                                         <!-- 160px: 80px gap times two, 3: 3 cols -->
-                                        <div style="flex: 1 0 calc((100% - 160px) / 3)">
+                                        <div class="large-flexbox">
                                             <div class="font-semibold text-[13px] leading-[16px] mb-[21px] text-[#ec1f46]">
                                                 {{ el.colTitle }}
                                             </div>
@@ -196,6 +199,16 @@ const switchTabs = (index) => {
     column-count: 3;
 }
 
+.checkmarked {
+    flex: 1 0 calc((100% - 80px) / 2);
+}
+
+@media (max-width: 640px) {
+    .checkmarked {
+        flex: 1 1 100%;
+    }
+}
+
 .checkmarked:after {
     content: "";
     position: absolute;
@@ -205,5 +218,31 @@ const switchTabs = (index) => {
     background-size: contain;
     width: 15px;
     height: 15px;
+}
+
+.small-flexbox {
+    flex: 1 0 calc((100% - 80px) / 2);
+}
+
+@media (max-width: 1025px) {
+    .small-flexbox {
+        flex: 1 1 100%;
+    }
+}
+
+.large-flexbox {
+    flex: 1 0 calc((100% - 160px) / 3);
+}
+
+@media (max-width: 768px) {
+    .large-flexbox {
+        flex: 1 0 calc((100% - 80px) / 2);
+    }
+}
+
+@media (max-width: 640px) {
+    .large-flexbox {
+        flex: 1 1 100%;
+    }
 }
 </style>

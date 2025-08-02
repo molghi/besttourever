@@ -12,8 +12,8 @@ const content = {
 </script>
 
 <template>
-    <div class="flex justify-between items-center">
-        <div class="flex gap-[35px] mx-auto">
+    <div class="flex justify-between items-center gap-[30px] flex-col sm:flex-row">
+        <div class="flex gap-[30px] sm:gap-[35px] lg:mx-auto">
             <a v-for="(item, index) in content.list" :key="index" :href="item.link" class="hover:underline">{{ item.title }}</a>
         </div>
         <div class="max-w-[140px]">

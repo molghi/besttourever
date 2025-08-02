@@ -17,10 +17,10 @@ const content = {
 
 <template>
     <section class="bg-[#f5fafe] pt-[60px] pb-[100px]">
-        <div class="container mx-auto">
+        <div class="container mx-auto pl-[10px] pr-[10px]">
             <div>
                 <div class="mb-[60px] text-[36px] uppercase text-center">{{ content.title }}</div>
-                <div class="flex gap-[30px]">
+                <div class="flex gap-[30px] flex-wrap justify-center lg:justify-start lg:flex-nowrap">
                     <!-- cards -->
                     <div v-for="(item, index) in content.cards" :key="index" class="relative rounded-[6px]">
                         <div>
